@@ -1,27 +1,30 @@
 <template>
-  <div>
-    Hello {{ greet }}, You are viewing {{ name }}
-  </div>
-  <p></p>
-  <hr/>
-
+  App Component App name - {{name}}
+  <component-c/>
 </template>
 
 <script>
-export default {
-  name: 'App',
-  data() {    
-    return {
-      'greet': 'Good Afternoon',
-      name:' Vue App',
-    };
-  },
-  methods: {
-  },
-}
+import ComponentC from './components/ComponentC.vue'
+  export default {
+      name:'App',
+      components: {
+        ComponentC
+      },
+      data() {
+        return {
+          name: 'Vue',
+        }
+      },
+      provide() {
+        return {
+          appname: this.name
+        }
+      }
+  }
 </script>
 
-<style>
+<style scoped>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -31,7 +34,4 @@ export default {
   margin-top: 60px;
 }
 
-hr {
-  border: 2px solid #035891;
-}
 </style>
