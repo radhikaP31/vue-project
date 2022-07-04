@@ -1,25 +1,13 @@
 <template>
-  App Component App name - {{name}}
-  <component-c/>
+  <div>
+  </div>
+  <hr/>
+
 </template>
 
 <script>
-import ComponentC from './components/ComponentC.vue'
+
   export default {
-      name:'App',
-      components: {
-        ComponentC
-      },
-      data() {
-        return {
-          name: 'Vue',
-        }
-      },
-      provide() {
-        return {
-          appname: this.name
-        }
-      }
   }
 </script>
 
@@ -32,6 +20,10 @@ import ComponentC from './components/ComponentC.vue'
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+hr {
+  border: 2px solid #035891;
 }
 
 </style>
