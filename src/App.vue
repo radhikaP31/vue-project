@@ -1,27 +1,26 @@
 <template>
+  <h2>Reusability with Composition API</h2>
+  <hr />
   <div>
-    <click-counter/>
-    <hover-counter/>
+    <click-counter-component/>
+    <hover-counter-component/>
   </div>
-  <hr/>
-
 </template>
 
 <script>
-import ClickCounter from './components/ClickCounter.vue'
-import HoverCounter from './components/HoverCounter.vue'
+import ClickCounterComponent from './components/ClickCounterComponent.vue'
+import HoverCounterComponent from './components/HoverCounterComponent.vue'
 
   export default {
     name: 'App',
     components: {
-        ClickCounter,
-        HoverCounter
+        ClickCounterComponent,
+        HoverCounterComponent
     }
   }
 </script>
 
-<style scoped>
-
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -34,5 +33,4 @@ import HoverCounter from './components/HoverCounter.vue'
 hr {
   border: 2px solid #035891;
 }
-
 </style>`
