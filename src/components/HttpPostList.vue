@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="getPosts">Http Post List</button>
+        <!-- <button @click="getPosts">Http Post List</button> uncomment if you need to load data on button click -->
         <h3 v-if="errorMsg"> {{ errorMsg }}</h3>
         <div v-for="post in posts" :key="post.id">
             <h3>{{ post.id }} {{ post.title }}</h3>
@@ -13,6 +13,9 @@
 import axios from 'axios'
     export default {
         name: 'HttpPostList',
+        created() { //use for load data on page load
+            this.getPosts()
+        },
         data() {
             return {
                 posts: [],
