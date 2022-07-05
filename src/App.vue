@@ -8,6 +8,9 @@
 <script>
 
   export default {
+    name: 'App',
+    components: {
+    }
   }
 </script>
 
@@ -26,4 +29,4 @@ hr {
   border: 2px solid #035891;
 }
 
-</style>
+</style>`
