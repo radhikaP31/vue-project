@@ -33,4 +33,4 @@ import HoverCounterComponent from './components/HoverCounterComponent.vue'
 hr {
   border: 2px solid #035891;
 }
-</style>`
+</style>
