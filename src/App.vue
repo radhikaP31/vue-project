@@ -1,36 +1,36 @@
-<template>
-  <h2>Reusability with Composition API</h2>
-  <hr />
-  <div>
-    <click-counter-component/>
-    <hover-counter-component/>
-  </div>
-</template>
-
 <script>
-import ClickCounterComponent from './components/ClickCounterComponent.vue'
-import HoverCounterComponent from './components/HoverCounterComponent.vue'
+import HomePage from './HomePage.vue'
+import AboutPage from './AboutPage.vue'
+import NotFound from './NotFound.vue'
 
-  export default {
-    name: 'App',
-    components: {
-        ClickCounterComponent,
-        HoverCounterComponent
+const routes = {
+  '/': HomePage,
+  '/about': AboutPage
+}
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      currentPath: window.location.hash
     }
+  },
+  computed: {
+    currentView() {
+      return routes[this.currentPath.slice(1) || '/'] || NotFound
+    }
+  },
+  mounted() {
+    window.addEventListener('hashchange', () => {
+		  this.currentPath = window.location.hash
+		})
   }
+}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-hr {
-  border: 2px solid #035891;
-}
-</style>`
+<template>
+  <a href="#/">Home</a> |
+  <a href="#/about">About</a> |
+  <a href="#/non-existent-path">Broken Link</a>
+  <component :is="currentView" />
+</template>
